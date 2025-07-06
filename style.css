@@ -1,0 +1,127 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+/* end of Josh's reset */
+
+/* My CSS */
+:root {
+	font-size: 16px;
+
+	/* font size */
+	--f-xs: 0.75rem; /* 12px */
+	--f-s: 0.875rem; /* 14px */
+	--f-base: 1rem; /* 16px */
+	--f-m: 1.125rem; /* 18px */
+	--f-l: 1.25rem; /* 20px */
+	--f-xl: 1.5rem; /* 24px */
+	--f-2xl: 2rem; /* 32px */
+	--f-3xl: 2.5rem; /* 40px */
+
+	/* line height */
+	--lh-tight: 1.2;
+	--lh-relaxed: 1.75;
+
+	/* spacing rem */
+	--rem-xs: 0.25rem; /* 4px */
+	--rem-s: 0.5rem; /* 8px */
+	--rem-m: 1rem; /* 16px */
+	--rem-l: 1.5rem; /* 24px */
+	--rem-xl: 2rem; /* 32px */
+	--rem-2xl: 3rem; /* 48px */
+	--rem-3xl: 4rem; /* 64px */
+
+	/* contextual spacing */
+	--em-xs: 0.25em;
+	--em-s: 0.5em;
+	--em-m: 1em;
+	--em-l: 1.5em;
+	--em-xl: 2em;
+
+	/* colors  */
+	--bg-clr: #1e2019;
+	--accent-clr: #97a8ff;
+
+	--text-clr-light: #d3d0cb;
+	--text-clr-dark: ;
+
+	/* UI validation */
+	--success-clr: #0fc975;
+	--warning-clr: #fff697;
+	--error-clr: #ff897e;
+
+	/* shadows */
+	--shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+	--shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* utilities */
+.container {
+	width: 80%;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+body {
+	background-color: var(--bg-clr);
+	color: var(--text-clr-light);
+}

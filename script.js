@@ -23,3 +23,6 @@ function addBookToLibrary(title, author, pages, isRead) {
 	const book = new Book(title, author, pages, isRead);
 	myLibrary.push(book);
 }
+
+addBookToLibrary('Book', 'Author', 322, true);
+console.table(myLibrary);

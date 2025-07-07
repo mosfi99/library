@@ -1,6 +1,6 @@
-# [[Book library project](https://www.theodinproject.com/lessons/node-path-javascript-library)]
+# [Book library project](https://www.theodinproject.com/lessons/node-path-javascript-library)
 
-This project is part of the [["Objects and Object Constructors"](https://www.theodinproject.com/lessons/node-path-javascript-objects-and-object-constructors)] lesson from The Odin Project.
+This project is part of the ["Objects and Object Constructors"](https://www.theodinproject.com/lessons/node-path-javascript-objects-and-object-constructors) lesson from The Odin Project.
 
 ## Features
 

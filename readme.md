@@ -1,10 +1,16 @@
-# [Book library project](https://www.theodinproject.com/lessons/node-path-javascript-library)
+# Book library
+
+Link to project description: https://www.theodinproject.com/lessons/node-path-javascript-library
 
 This project is part of the ["Objects and Object Constructors"](https://www.theodinproject.com/lessons/node-path-javascript-objects-and-object-constructors) lesson from The Odin Project.
 
-## Features
+## Stack
 
-The app allows users to add, display, update, and remove books.
+- HTML
+- CSS
+- JavaScript
+
+## Features
 
 - Add new books using a form
 - Store book data in an array

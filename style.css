@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -99,10 +101,11 @@ h6 {
 
 	/* colors  */
 	--bg-clr: #1e2019;
-	--accent-clr: #97a8ff;
+	--hover-clr: #77e9996c;
+	--border-clr: #77e999;
 
 	--text-clr-light: #d3d0cb;
-	--text-clr-dark: ;
+	--text-clr-dark: #1e2019;
 
 	/* UI validation */
 	--success-clr: #0fc975;
@@ -124,4 +127,44 @@ h6 {
 body {
 	background-color: var(--bg-clr);
 	color: var(--text-clr-light);
+	font-family: 'Rubik', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--rem-m);
+	border-bottom: 1px solid var(--border-clr);
+}
+
+button {
+	padding: var(--em-xs) var(--em-m);
+	height: fit-content;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead tr {
+	text-align: left;
+	font-size: var(--f-m);
+}
+
+th,
+td {
+	padding: var(--em-m) var(--em-s);
+	border-bottom: 1px solid var(--border-clr);
+}
+
+.title {
+	font-weight: bold;
+	font-style: italic;
+}
+
+tbody tr:hover {
+	background-color: var(--hover-clr);
+	transition: background-color 0.2s ease-in-out;
 }

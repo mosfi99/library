@@ -103,18 +103,15 @@ h6 {
 	--bg-clr: #1e2019;
 	--hover-clr: #77e9996c;
 	--border-clr: #77e999;
+	--shadow: 0 0 var(--rem-m) #77e99933;
 
 	--text-clr-light: #d3d0cb;
 	--text-clr-dark: #1e2019;
 
 	/* UI validation */
 	--success-clr: #0fc975;
-	--warning-clr: #fff697;
+	--focus-clr: #fff697;
 	--error-clr: #ff897e;
-
-	/* shadows */
-	--shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
-	--shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
 
 /* utilities */
@@ -139,10 +136,96 @@ header {
 }
 
 button {
-	padding: var(--em-xs) var(--em-m);
+	cursor: pointer;
+	border: none;
 	height: fit-content;
+	font-weight: 500;
+	background-color: var(--border-clr);
+	color: var(--text-clr-dark);
+	padding: var(--em-xs) var(--em-m);
+	border-radius: var(--rem-s);
+	transition: box-shadow 0.3s ease;
 }
 
+button:hover {
+	box-shadow: var(--shadow);
+}
+/* dialog, aka. modal */
+dialog {
+	background-color: var(--bg-clr);
+	color: var(--text-clr-light);
+	border: none;
+	margin: var(--rem-3xl) auto;
+}
+
+::backdrop {
+	background-color: var(--bg-clr);
+}
+
+/* form */
+form {
+	padding: var(--rem-xl);
+	border: 2px solid var(--border-clr);
+	border-radius: var(--rem-s);
+	width: 60ch;
+	line-height: var(--lh-relaxed);
+	box-shadow: var(--shadow);
+}
+
+.form__title {
+	text-align: center;
+	margin-bottom: var(--rem-m);
+	font-size: var(--f-xl);
+}
+
+.form-group {
+	margin-bottom: var(--rem-m);
+	display: flex;
+	flex-direction: column;
+	gap: var(--rem-xs);
+}
+
+label {
+	font-weight: 500;
+}
+
+input,
+select {
+	background-color: transparent;
+	color: var(--text-clr-light);
+	border: 2px solid var(--border-clr);
+	border-radius: var(--rem-s);
+	padding: var(--rem-s);
+	line-height: var(--lh-tight);
+	transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+	outline: none;
+	border-color: var(--focus-clr);
+}
+
+.form__buttons {
+	margin-top: var(--rem-xl);
+	display: flex;
+	justify-content: space-around;
+}
+
+.cancel__btn {
+	background-color: var(--error-clr);
+}
+
+/* form validation */
+input:user-valid {
+	border-color: var(--success-clr);
+}
+
+input:user-invalid {
+	border-color: var(--error-clr);
+}
+
+/* table */
 table {
 	width: 100%;
 	border-collapse: collapse;

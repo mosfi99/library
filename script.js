@@ -30,9 +30,21 @@ function Book(title, author, pages, status) {
 	this.status = status;
 }
 
+// prototype functions
 Book.prototype.generateID = function () {
 	return crypto.randomUUID();
 	// It creates a 128-bit identifier (chance of collision is extremely low: it uses the OS’s underlying cryptographic random number generator). In this case, there is no need to check if the id has already been generated in previous runtimes.
+};
+
+Book.prototype.toggleStatus = function () {
+	this.status = this.status === 'Read' ? 'Not read' : 'Read';
+
+	// target only the status button of the matching book id
+	const row = document.querySelector(`tr[data-id="${this.id}"]`);
+
+	// change text content
+	const statusBtn = row.querySelector('.status__btn');
+	statusBtn.textContent = this.status;
 };
 
 // take params, create a book, return it
@@ -117,35 +129,46 @@ function displayNewBook(book) {
 	const title = document.createElement('td');
 	const author = document.createElement('td');
 	const pages = document.createElement('td');
+	// const statusBtn = document.createElement('td');
 	const status = document.createElement('td');
-	const button = document.createElement('td');
+	const statusBtn = document.createElement('button');
+	const deleteOption = document.createElement('td');
 	const deleteBtn = document.createElement('button');
 
 	// element classes & IDs
 	title.classList.add('book__title');
-	pages.classList.add('pages');
-	status.classList.add('status');
+	statusBtn.classList.add('status__btn');
 	deleteBtn.classList.add('delete__btn');
 
-	// not to be displayed, but used for removing book
+	// not to be displayed, but used for identifying the book
 	bookRow.dataset.id = book.id;
+
 	// book info to display
 	title.textContent = book.title;
 	author.textContent = book.author;
 	pages.textContent = book.pages;
-	status.textContent = book.status;
+	statusBtn.textContent = book.status;
 	deleteBtn.textContent = 'Delete';
 
 	// append data to row
 	bookRow.appendChild(title);
 	bookRow.appendChild(author);
 	bookRow.appendChild(pages);
+	// bookRow.appendChild(status);
+
 	bookRow.appendChild(status);
-	bookRow.appendChild(button);
-	button.appendChild(deleteBtn);
+	status.appendChild(statusBtn);
+
+	bookRow.appendChild(deleteOption);
+	deleteOption.appendChild(deleteBtn);
 
 	// append row to table
 	tableBody.appendChild(bookRow);
+
+	// events
+	statusBtn.addEventListener('click', () => {
+		book.toggleStatus();
+	});
 
 	// delete book
 	deleteBtn.addEventListener('click', () => {

@@ -70,40 +70,37 @@ h6 {
 	font-size: 16px;
 
 	/* font size */
-	--f-xs: 0.75rem; /* 12px */
-	--f-s: 0.875rem; /* 14px */
-	--f-base: 1rem; /* 16px */
 	--f-m: 1.125rem; /* 18px */
 	--f-l: 1.25rem; /* 20px */
 	--f-xl: 1.5rem; /* 24px */
-	--f-2xl: 2rem; /* 32px */
-	--f-3xl: 2.5rem; /* 40px */
 
 	/* line height */
 	--lh-tight: 1.2;
 	--lh-relaxed: 1.75;
 
 	/* spacing rem */
-	--rem-xs: 0.25rem; /* 4px */
-	--rem-s: 0.5rem; /* 8px */
-	--rem-m: 1rem; /* 16px */
-	--rem-l: 1.5rem; /* 24px */
-	--rem-xl: 2rem; /* 32px */
-	--rem-2xl: 3rem; /* 48px */
-	--rem-3xl: 4rem; /* 64px */
+	--rem-0-25: 0.25rem;
+	--rem-0-50: 0.5rem;
+	--rem-1: 1rem;
+	--rem-1-50: 1.5rem;
+	--rem-2: 2rem;
+	--rem-3: 3rem;
+	--rem-4: 4rem;
+	--rem-5: 5rem;
 
 	/* contextual spacing */
-	--em-xs: 0.25em;
-	--em-s: 0.5em;
-	--em-m: 1em;
-	--em-l: 1.5em;
-	--em-xl: 2em;
+	--em-0-25: 0.25em;
+	--em-0-5: 0.5em;
+	--em-1: 1em;
+	--em-1-50: 1.5em;
+	--em-2: 2em;
 
 	/* colors  */
 	--bg-clr: #1e2019;
 	--hover-clr: #77e9996c;
 	--border-clr: #77e999;
-	--shadow: 0 0 var(--rem-m) #77e99933;
+	--shadow: 0 0 var(--rem-1) #77e99933;
+	--shadow-red: 0 0 var(--rem-1) #e9777791;
 
 	--text-clr-light: #d3d0cb;
 	--text-clr-dark: #1e2019;
@@ -121,6 +118,8 @@ h6 {
 	margin: 0 auto;
 }
 
+/* general */
+
 body {
 	background-color: var(--bg-clr);
 	color: var(--text-clr-light);
@@ -128,11 +127,14 @@ body {
 }
 
 header {
+	border-bottom: 1px solid var(--border-clr);
+}
+
+header .container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: var(--rem-m);
-	border-bottom: 1px solid var(--border-clr);
+	padding: var(--rem-1);
 }
 
 button {
@@ -142,31 +144,48 @@ button {
 	font-weight: 500;
 	background-color: var(--border-clr);
 	color: var(--text-clr-dark);
-	padding: var(--em-xs) var(--em-m);
-	border-radius: var(--rem-s);
+	padding: var(--em-0-25) var(--em-1);
+	border-radius: var(--rem-0-50);
 	transition: box-shadow 0.3s ease;
 }
 
 button:hover {
 	box-shadow: var(--shadow);
 }
+.cancel__btn,
+.delete__btn {
+	background-color: var(--error-clr);
+}
+
+.cancel__btn:hover,
+.delete__btn:hover {
+	box-shadow: var(--shadow-red);
+}
+
 /* dialog, aka. modal */
 dialog {
 	background-color: var(--bg-clr);
 	color: var(--text-clr-light);
 	border: none;
-	margin: var(--rem-3xl) auto;
+	margin: var(--rem-4) auto;
 }
 
 ::backdrop {
 	background-color: var(--bg-clr);
 }
 
+.start__message {
+	text-align: right;
+	font-weight: normal;
+	margin-top: var(--rem-2);
+	margin-right: var(--rem-5);
+}
+
 /* form */
 form {
-	padding: var(--rem-xl);
+	padding: var(--rem-2);
 	border: 2px solid var(--border-clr);
-	border-radius: var(--rem-s);
+	border-radius: var(--rem-0-50);
 	width: 60ch;
 	line-height: var(--lh-relaxed);
 	box-shadow: var(--shadow);
@@ -174,15 +193,15 @@ form {
 
 .form__title {
 	text-align: center;
-	margin-bottom: var(--rem-m);
+	margin-bottom: var(--rem-1);
 	font-size: var(--f-xl);
 }
 
 .form-group {
-	margin-bottom: var(--rem-m);
+	margin-bottom: var(--rem-1);
 	display: flex;
 	flex-direction: column;
-	gap: var(--rem-xs);
+	gap: var(--rem-0-25);
 }
 
 label {
@@ -194,8 +213,8 @@ select {
 	background-color: transparent;
 	color: var(--text-clr-light);
 	border: 2px solid var(--border-clr);
-	border-radius: var(--rem-s);
-	padding: var(--rem-s);
+	border-radius: var(--rem-0-50);
+	padding: var(--rem-0-50);
 	line-height: var(--lh-tight);
 	transition: border-color 0.3s ease;
 }
@@ -207,13 +226,9 @@ select:focus {
 }
 
 .form__buttons {
-	margin-top: var(--rem-xl);
+	margin-top: var(--rem-2);
 	display: flex;
 	justify-content: space-around;
-}
-
-.cancel__btn {
-	background-color: var(--error-clr);
 }
 
 /* form validation */
@@ -229,6 +244,7 @@ input:user-invalid {
 table {
 	width: 100%;
 	border-collapse: collapse;
+	margin-top: var(--rem-1-50);
 }
 
 thead tr {
@@ -238,16 +254,11 @@ thead tr {
 
 th,
 td {
-	padding: var(--em-m) var(--em-s);
+	padding: var(--em-1) var(--em-0-5);
 	border-bottom: 1px solid var(--border-clr);
 }
 
-.title {
+.book__title {
 	font-weight: bold;
 	font-style: italic;
-}
-
-tbody tr:hover {
-	background-color: var(--hover-clr);
-	transition: background-color 0.2s ease-in-out;
 }

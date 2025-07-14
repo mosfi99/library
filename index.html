@@ -8,12 +8,14 @@
 		<script src="./script.js" defer></script>
 	</head>
 	<body>
-		<div class="container">
-			<header>
+		<header>
+			<div class="container">
 				<h1>Library</h1>
 				<button id="add-book__btn">Add New Book</button>
-			</header>
+			</div>
+		</header>
 
+		<div class="container">
 			<dialog id="dialog">
 				<form id="form">
 					<h2 class="form__title">Book details</h2>
@@ -44,21 +46,19 @@
 
 					<div class="form__buttons">
 						<button id="submit__btn" type="submit">Submit</button>
-						<button class="cancel__btn" id="cancel__btn" type="reset">Cancel</button>
+						<button class="cancel__btn" id="cancel__btn" type="reset">
+							Cancel
+						</button>
 					</div>
 				</form>
 			</dialog>
 
 			<main>
+				<h2 id="start__message" class="start__message">
+					Start by adding your first book ☝️
+				</h2>
 				<table>
-					<thead>
-						<tr>
-							<th>Title</th>
-							<th>Author</th>
-							<th>Pages</th>
-							<th>Status</th>
-						</tr>
-					</thead>
+					<thead id="table__head"></thead>
 					<tbody id="table__body"></tbody>
 				</table>
 			</main>

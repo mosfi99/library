@@ -87,7 +87,6 @@ form.addEventListener(
 	'submit',
 	(e) => {
 		e.preventDefault();
-		console.log('first');
 
 		startMessage.remove();
 
@@ -176,7 +175,6 @@ function displayNewBook(book) {
 
 		// remove from myLibrary
 		myLibrary = myLibrary.filter((book) => book.id !== bookId);
-		console.log(myLibrary);
 
 		// remove from DOM
 		bookRow.remove();

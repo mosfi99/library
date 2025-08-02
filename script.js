@@ -18,34 +18,36 @@ const inputStatus = document.querySelector('#input__status');
 let myLibrary = [];
 
 // the constructor
-function Book(title, author, pages, status) {
-	if (!new.target) {
-		throw Error("Use the 'new' operator to call the constructor");
+class Book {
+	#id;
+
+	constructor(title, author, pages, status) {
+		this.#id = this.#generateID();
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.status = status;
 	}
 
-	this.id = this.generateID();
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.status = status;
+	get id() {
+		return this.#id;
+	}
+	
+	#generateID() {
+		return crypto.randomUUID();
+		// It creates a 128-bit identifier (chance of collision is extremely low: it uses the OS’s underlying cryptographic random number generator). In this case, there is no need to check if the id has already been generated in previous runtimes.
+	}
+	toggleStatus() {
+		this.status = this.status === 'Read' ? 'Not read' : 'Read';
+
+		// target only the status button of the matching book id
+		const row = document.querySelector(`tr[data-id="${this.id}"]`);
+
+		// change text content
+		const statusBtn = row.querySelector('.status__btn');
+		statusBtn.textContent = this.status;
+	}
 }
-
-// prototype functions
-Book.prototype.generateID = function () {
-	return crypto.randomUUID();
-	// It creates a 128-bit identifier (chance of collision is extremely low: it uses the OS’s underlying cryptographic random number generator). In this case, there is no need to check if the id has already been generated in previous runtimes.
-};
-
-Book.prototype.toggleStatus = function () {
-	this.status = this.status === 'Read' ? 'Not read' : 'Read';
-
-	// target only the status button of the matching book id
-	const row = document.querySelector(`tr[data-id="${this.id}"]`);
-
-	// change text content
-	const statusBtn = row.querySelector('.status__btn');
-	statusBtn.textContent = this.status;
-};
 
 // take params, create a book, return it
 function createBook(title, author, pages, status) {

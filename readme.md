@@ -12,6 +12,15 @@ This project was built as part of the ["Objects and Object Constructors"](https:
 - Data attributes for element association
 - Accessibility basics using `<dialog>`
 
+## Refactor update
+
+The code has since been refactored to use modern JavaScript classes based on the ["JavaScript Classe"](https://www.theodinproject.com/lessons/node-path-javascript-classes) lesson. This includes:
+
+- Replacing constructor functions with class syntax
+- Using private properties and methods with #
+- Maintaining instance behavior with public methods
+- Preserving clean DOM-data separation
+
 ## Built with
 
 - HTML5
